@@ -1,0 +1,26 @@
+{
+  "total_intervals": 52156,
+  "positive_intervals": 15292,
+  "roi_sample_frontier_intervals": 58,
+  "displayed_candidates": 111,
+  "recorded_rows": 187,
+  "decisive_fights": 185,
+  "draw_rows": 1,
+  "canceled_rows": 1,
+  "earliest_identifiable_prefix": 3,
+  "comparison_prefix": 24,
+  "fractions": [
+    0.25,
+    0.5,
+    1.0
+  ],
+  "simulation_scenarios": 91752,
+  "trajectory_points_per_scenario": 188,
+  "notes": [
+    "All positive backing intervals are simulated; no minimum-N or top-N filter.",
+    "Categories are selected using full-sample outcomes; probability fits use only previous decisive fights.",
+    "The first three decisive fights establish full rank; no probability-based stake is placed before then.",
+    "Each path begins at bankroll 1, includes skipped/canceled rows, and settles the draw at 50 cents.",
+    "Pre-card asks, reconstructed prices and scalable taker fees retain the limitations in the main report."
+  ]
+}

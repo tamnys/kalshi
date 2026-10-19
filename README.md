@@ -6,6 +6,10 @@ Source workbooks and row-level corrected data are stored locally and excluded fr
 
 Open [the standalone report](reports/final_report.html) in a browser. The report contains the candidate categories, uncertainty, price reconstruction, and fractional Kelly tradeoffs. Its charts are embedded, so the HTML can be shared as one file.
 
+The [confidence/odds interval follow-up](reports/interval_trajectories.html) adds a selectable full fight-by-fight bankroll viewer. It simulates all 15,292 historically positive backing intervals at quarter, half, and full Kelly, using both the earliest identifiable three-fight training prefix and the original 24-fight comparison. Every path includes all 187 recorded rows. The updated practical candidates and the effect of early calibration are explained there.
+
+The [complete interval simulations](results/interval_kelly_all_positive.csv.gz) and [displayed bankroll paths](results/interval_bankroll_paths.csv.gz) are gzip-compressed CSV files. The [ROI/sample-size frontier](results/interval_roi_frontier.csv), [Kelly return/drawdown frontier](results/interval_kelly_return_drawdown_frontier.csv), and [selected-category statistics](results/interval_selected_details.csv) are ordinary CSVs. Complete paths for every positive interval are generated locally as compressed NumPy arrays in `artifacts/private/`. Category selection uses the full historical sample; prior-outcome probability fitting does not remove that selection bias.
+
 The main data outputs are [category statistics](results/categories.csv), [candidate details](results/candidate_details.csv), [portfolio tradeoffs](results/portfolio_tradeoffs.csv), [Kalshi reconstruction](results/kalshi_price_reconstruction.json), and the complete [backing](results/all_interval_search.csv) and [fading](results/fade_interval_search.csv) interval searches.
 
 To reproduce with Python 3.9 and the exact source workbook:
