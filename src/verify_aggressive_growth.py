@@ -67,6 +67,15 @@ def run():
         assert np.allclose(path,saved[key],rtol=1e-9,atol=1e-9)
         assert np.isclose(path[-1],row.final_wealth)
         assert np.isclose(np.max(1-path/np.maximum.accumulate(path)),row.max_drawdown)
+        # Independently replace the affected multiplicative factor. A winning
+        # payout changing from 1 to 0 subtracts allocation / cost from that factor.
+        returns=np.divide(pay,c,out=np.ones(len(full)),where=c>0)-1
+        alternatives=[]
+        for i in np.flatnonzero((f>0)&(pay==1)):
+            factor=(1+f[i]*returns[i]) if row.cadence=='fight' else 1+np.sum(f[full.date.eq(full.date.iloc[i])]*returns[full.date.eq(full.date.iloc[i])])
+            alternatives.append(path[-1]*(factor-f[i]/c[i])/factor)
+        if alternatives:
+            assert np.isclose(min(alternatives),row.worst_single_win_reversal_wealth)
     # Log terminal wealth is concave in the common fraction on the cash-feasible
     # domain. Verify its endpoint/interior first-order conditions independently.
     opt=results[results.choice.eq('hindsight_best_feasible')]

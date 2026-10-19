@@ -8,6 +8,7 @@ sys.path.insert(0,str(Path(__file__).resolve().parent/'src'))
 import audit,clean,kalshi,analyze,kelly,robustness,strategy_tradeoffs,timing_audit,interval_trajectories,interval_report,report,verify,verify_intervals
 import prospective,calibration_uncertainty,sequential_evidence,prospective_report,verify_prospective
 import lower_confidence,lower_confidence_report,verify_lower_confidence
+import aggressive_growth,aggressive_growth_report,verify_aggressive_growth
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser()
@@ -17,6 +18,7 @@ if __name__=='__main__':
     clean.clean(source)
     for stage in (kalshi,analyze,kelly,robustness,strategy_tradeoffs,timing_audit,interval_trajectories,
                   prospective,calibration_uncertainty,sequential_evidence,lower_confidence,lower_confidence_report,
+                  aggressive_growth,aggressive_growth_report,
                   prospective_report,interval_report,report):
         print('Running',stage.__name__,flush=True)
         stage.run()
@@ -24,3 +26,4 @@ if __name__=='__main__':
     verify_intervals.run()
     verify_prospective.run()
     verify_lower_confidence.run()
+    verify_aggressive_growth.run()
