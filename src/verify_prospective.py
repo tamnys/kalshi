@@ -100,8 +100,8 @@ def run():
     assert bootstrap['coefficients'].shape == (meta['resamples'], 3)
     assert np.isfinite(bootstrap['coefficients']).all()
     for row in pd.read_csv(ROOT / 'results/calibration_sizing_uncertainty.csv').itertuples():
-        # Independent explicit affine calculation also avoids this host BLAS's
-        # spurious floating-status warnings on otherwise finite small dot products.
+        # Independently expand the affine expression. Matrix products on this host
+        # emitted floating-status warnings despite finite operands/matching values.
         beta = bootstrap['coefficients']
         p = expit(beta[:, 0] + beta[:, 1] * logit(row.ask) + beta[:, 2] * (row.confidence - 3))
         assert np.isclose(np.quantile(p, .025), row.probability_p025)
