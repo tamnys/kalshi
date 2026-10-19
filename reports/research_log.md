@@ -61,3 +61,22 @@ The complete cached pipeline was rerun successfully. Checks cover source preserv
 Original source workbooks, API caches, normalized fight data, and the corrected workbook remain local. Code, aggregate intermediate analyses, figures, report, and this research record are saved in GitHub checkpoints. There were no trades or external messages.
 
 Rejected as unsupported: exact historical prices where no market/quote exists, missing proprietary picks, pre-fight timestamp verification from post-hoc file metadata, and claims of a unique optimal fraction without a risk preference. These are stated as limitations rather than filled with invented values.
+
+## Completion audit after the continuation request
+
+The preceding turn made progress: the final analysis and report were committed and the remote main branch was verified. This continuation inspected the current files and underlying code against the original request, rather than treating that prior completion statement as evidence.
+
+One material limitation was investigated further. All 15 retrieved ESPN cards have only two or three distinct competition timestamps. Multiple bouts share a timestamp, and every bout has identical `date`, `startDate`, and `endDate` values. These are segment scheduling fields, not individually measured fight starts or finishes. They cannot establish a quote immediately before each fight. The reproducible check is `src/timing_audit.py`, with card-level evidence in `results/quote_timing_audit.csv`; the final report now explains it. No exact fight timestamps were invented.
+
+A stale note in the corrected workbook said the two opponent-price rows were excluded from priced inference. It now distinguishes their missing source prices from their explicit estimates in the final Kalshi analysis. The workbook and report were regenerated. A before/after SHA-256 comparison of the normalized Kalshi ledger confirmed that this clarification changed no prices, outcomes, or calculated returns.
+
+| Original requirement | Current authoritative evidence |
+| --- | --- |
+| Audit and correct the supplied workbook | Immutable source hash, 187-row inventory, all completed outcomes reconciled in `src/clean.py`, 32 logged source-cell edits, local corrected Excel workbook and correction log. `src/verify.py` passed against the regenerated workbook. |
+| Use Kalshi prices and payouts, estimate unavailable prices mathematically | Cached API asks with pre-card cutoffs and settlement-side reconciliation; 69 recovered prices; 44 independent sportsbook/ask pairs with leave-one-card-out comparison; 117 explicit estimates and one cancellation. Coefficients, errors, sources, and counterfactual-price limits are saved. |
+| Identify confidence/odds combinations and reliability | `candidate_details.csv`, complete backing/fading interval searches, card-cluster uncertainty, model-based posterior probabilities, and search correction. The interval enumeration and null-return arithmetic were inspected in the current source. |
+| Analyze stability and incremental confidence information | Observed/estimated splits, reconstruction sensitivity, influential-fight/card removal, calendar blocks, market-relative model scores, and forecasts trained only on earlier outcomes. The report explicitly distinguishes these exploratory checks from an untouched holdout. |
+| Construct fight-level fractional Kelly and show risk tradeoffs | Prior-outcome Firth calibration, analytic cash-fraction formula independently checked against log-utility optimization, sequential bankroll compounding, quarter/half/full and continuous hindsight comparisons, whole-card resampling, and the adverse frozen-before-card execution scenario. User risk tolerance remains unspecified. |
+| Save final and intermediate work | Checkpointed code, aggregate CSV/JSON results, figures, standalone HTML report, and this research record in the requested repository. Proprietary source and row-level artifacts remain local because the repository is public. |
+
+The remaining unknowns are absent signal timestamps, complete-system pick coverage, executable depth and fills, and exact individual-fight start/settlement times. They limit what can be inferred; further transformations of the same observations cannot supply them. The supported conclusion remains a plausible confidence-4–5 candidate, not an established profitable strategy.

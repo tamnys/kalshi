@@ -142,7 +142,7 @@ def clean(source):
         'R is the exact net win payout per dollar staked; H is the supplied rounded display.',
         'P uses exact Kalshi cents when provided; otherwise derives breakeven from American odds.',
         'Q excludes fees; draw at row 180 pays $0.50 per contract under KXUFCFIGHT rules.',
-        'The two opponent-price rows are excluded from priced inference; do not flip their odds.',
+        'Two opponent quotes do not identify selected-fighter prices. The Kalshi stage explicitly estimates these rows; see price_source in Kalshi analysis data.',
         'Dates/event labels inherit within a card in the normalized CSV only.',
         'Fight order follows ESPN scoreboard order; worksheet ordering is not always chronological.',
         'Confidence 1–5 is ordinal, not a stated probability.',

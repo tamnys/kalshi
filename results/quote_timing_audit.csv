@@ -1,0 +1,16 @@
+date,event,scoreboard_bouts,distinct_competition_dates,largest_shared_timestamp_group,all_date_start_end_equal,source
+2025-03-01,UFC Fight Night: Kape vs. Almabayev,10,2,5,True,https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20250301
+2025-03-08,UFC 313: Pereira vs. Ankalaev,10,3,5,True,https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20250308
+2025-03-15,UFC Fight Night: Vettori vs. Dolidze 2,13,2,7,True,https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20250315
+2025-03-22,UFC Fight Night: Edwards vs. Brady,13,2,7,True,https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20250322
+2025-03-29,UFC Fight Night: Moreno vs. Erceg,12,2,6,True,https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20250329
+2025-04-05,UFC Fight Night: Emmett vs. Murphy,12,2,6,True,https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20250405
+2025-04-12,UFC 314: Volkanovski vs. Lopes,13,3,5,True,https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20250412
+2025-04-26,UFC Fight Night: Machado Garry vs. Prates,14,2,8,True,https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20250426
+2025-07-19,UFC 318: Holloway vs. Poirier 3,14,3,5,True,https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20250719
+2025-07-26,UFC Fight Night: Whittaker vs. de Ridder,12,2,7,True,https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20250726
+2025-08-02,UFC Fight Night: Taira vs. Park,12,2,6,True,https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20250802
+2025-08-09,UFC Fight Night: Dolidze vs. Hernandez,12,2,6,True,https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20250809
+2025-10-04,UFC 320: Ankalaev vs. Pereira 2,14,3,5,True,https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20251004
+2026-10-10,UFC Fight Night: Allen vs. Duncan,12,2,7,True,https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261010
+2026-10-17,UFC Fight Night: Buckley vs. Malott,13,2,7,True,https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261017
