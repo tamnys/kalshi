@@ -76,6 +76,8 @@ def clean(source):
     ws['R1'] = 'Exact net win odds'
     df.loc[df.row.eq(16), 'result'] = 'cancelled'
     df.loc[df.row.eq(63), 'result'] = 'n'
+    df['pick'] = df.row.map(lambda row:ws[f'D{row}'].value)
+    df['fight'] = df.row.map(lambda row:ws[f'C{row}'].value)
     rec = pd.read_csv(ROOT / 'artifacts/private/outcome_reconciliation.csv').set_index('row')
     for i, r in df.iterrows():
         m = re.search(r'([+-])\s*(\d+(?:\.\d+)?)\s*$', r.odds_text)

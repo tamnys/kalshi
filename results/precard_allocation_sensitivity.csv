@@ -1,0 +1,7 @@
+high_confidence_only,fraction,feasible_without_borrowing,final_wealth,max_drawdown_at_card_boundaries
+False,0.25,True,0.7238393216254437,0.37625013406465346
+False,0.5,False,,
+False,1.0,False,,
+True,0.25,True,0.9226418463770198,0.19151172535180527
+True,0.5,True,0.7824072046120104,0.38302345070361044
+True,1.0,False,,

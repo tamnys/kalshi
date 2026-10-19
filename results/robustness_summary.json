@@ -1,0 +1,16 @@
+{
+  "fade_search_intervals": 52156,
+  "total_search_intervals": 104312,
+  "both_sides_best_adjusted_p": 0.356964303569643,
+  "best_back_band": {
+    "confidence_low": 3,
+    "confidence_high": 5,
+    "price_low": 0.35,
+    "price_high_exclusive": 0.4
+  },
+  "notes": [
+    "Both-side adjusted p uses Bonferroni across the back and fade search families.",
+    "The narrow category was discovered in the complete sample and has no independent holdout.",
+    "Fixed-category Kelly results condition on category selection after seeing the full sample."
+  ]
+}

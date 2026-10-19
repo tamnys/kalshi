@@ -116,8 +116,11 @@ def run():
                          source=url, market_open=m['open_time']))
         print('PRICE', r.row, m['ticker'], ask, bid, 'age', (end-c['end_period_ts'])/60, flush=True)
     prices = pd.DataFrame(rows)
+    settled = prices.merge(df[['row','payout']],on='row')
+    assert np.allclose(settled.settlement,settled.payout), 'Market-side/outcome mismatch'
+    assert not prices.ticker.duplicated().any(), 'Same contract matched more than once'
     prices.to_csv(ROOT / 'artifacts/private/kalshi_observed_prices.csv', index=False)
-    df = df.merge(prices[['row', 'ask', 'bid', 'ticker', 'age_minutes']], on='row', how='left')
+    df = df.merge(prices[['row', 'ask', 'bid', 'ticker', 'age_minutes', 'source']].rename(columns={'source':'price_url'}), on='row', how='left')
     overlap = df[df.ask.notna() & df.venue.eq('sportsbook_unspecified') & df.price.notna()].copy()
     # Do not train against derived American odds in the Kalshi quote rows.
     x, y = overlap.price.to_numpy(), overlap.ask.to_numpy()
@@ -194,8 +197,11 @@ def run():
                           'Price reconstruction learned from later cards is not a strictly prospective backtest.'])
     (ROOT/'results/kalshi_price_reconstruction.json').write_text(json.dumps(summary,indent=2)+'\n')
     wb=load_workbook(ROOT/'data/cleaned/MMA betting - audited.xlsx')
+    for name in list(wb.sheetnames):
+        if name.startswith('Kalshi analysis data'):
+            del wb[name]
     tab=wb.create_sheet('Kalshi analysis data')
-    cols=['row','date','event','fight','pick','confidence','result','price_source','kalshi_price','kalshi_cost','kalshi_return','kalshi_no_price','kalshi_no_cost','kalshi_no_return','ticker','age_minutes']
+    cols=['row','date','event','fight','pick','confidence','result','price_source','kalshi_price','kalshi_cost','kalshi_return','kalshi_no_price','kalshi_no_cost','kalshi_no_return','ticker','age_minutes','price_url']
     tab.append(cols)
     for vals in df[cols].itertuples(index=False,name=None):
         tab.append([None if pd.isna(v) else v for v in vals])

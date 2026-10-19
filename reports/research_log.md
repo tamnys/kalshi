@@ -45,3 +45,19 @@ Retrieved 1,570 live/archive KXUFCFIGHT markets and 69 selected-fighter pre-card
 The binary sample now has 185 fights, including the two explicitly imputed opponent-price rows. Aggregate net ROI is approximately -0.9%. The exhaustive search covers 52,156 confidence/price intervals with no minimum sample-size filter. All intervals, including losing and tiny cells, are retained in `results/all_interval_search.csv`. The maximum-statistic simulation adjusts for this search. Card-cluster intervals and model-based posterior probabilities describe different uncertainty assumptions and are reported separately.
 
 The user requested growth/drawdown tradeoffs without a preferred risk tolerance. Sequential probability calibration and Kelly staking are being evaluated with earlier outcomes only. All work remains exploratory; no dataset has been declared an untouched holdout.
+
+## Completed analysis and verification
+
+The final report is `reports/final_report.html`. It contains the confidence/price shortlist, frequentist and model-based uncertainty, price reconstruction, temporal and influence checks, and fight-level fractional Kelly construction. The backing and fading searches contain 104,312 intervals in total. The strongest interval's search-adjusted p value is 0.178 within backing and 0.357 after accounting for both directions. No category establishes a robust edge after discovery adjustment.
+
+The broad confidence-4–5 pool returns 9.7% net on 56 flat-stake bets, with an approximate card-cluster 95% interval from -15.2% to +34.6%. Its independent common-shift posterior gives an 88.9% positive-edge probability, which is not discovery-adjusted. Profit remains positive when any one card is omitted. Observed-price and imputed-price subsets are both positive. The narrower 35–40-cent category is an 8/8 exploratory finding, not a probability estimate.
+
+Six calibration models were evaluated with earlier-fight outcomes only, following an initial 24-fight prefix required for common model identifiability. None clearly improves market predictive accuracy. The high-confidence pool with odds-plus-confidence calibration has +10.2% historical bankroll growth and 19.1% maximum drawdown at the quarter-Kelly comparison point. Full Kelly loses 13.6% with 64.9% maximum drawdown. These figures condition on pre-card quotes still being obtainable during sequential betting. The separate benchmark freezes probabilities and allocations before the card and loses 7.7% at quarter Kelly for the high-confidence pool. It does not use later same-card outcomes in advance.
+
+The draw is settled at 50 cents per contract and included in the bankroll ledger. All backing models skip it; the categorical fading model's position incurs its modeled draw loss. No user bankroll size, drawdown budget, fee account type, or optimal betting fraction was invented.
+
+The complete cached pipeline was rerun successfully. Checks cover source preservation, source-hash binding for cell-specific corrections, corrected outcomes/dates, fighter-side matching, no post-card quote use, settlement reconciliation, independent Decimal fee arithmetic, analytic Kelly versus direct log-utility maximization, sequential compounding, finite separated fits, and aggregate totals. The standalone HTML parses with embedded charts and numerical tables; the README passes the documentation boundary check.
+
+Original source workbooks, API caches, normalized fight data, and the corrected workbook remain local. Code, aggregate intermediate analyses, figures, report, and this research record are saved in GitHub checkpoints. There were no trades or external messages.
+
+Rejected as unsupported: exact historical prices where no market/quote exists, missing proprietary picks, pre-fight timestamp verification from post-hoc file metadata, and claims of a unique optimal fraction without a risk preference. These are stated as limitations rather than filled with invented values.

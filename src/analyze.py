@@ -91,6 +91,21 @@ def price_tolerance(d):
     return brentq(f,0,1-p.min())
 
 
+def heatmap(cats):
+    fig,ax=plt.subplots(figsize=(8,4.5))
+    matrix=np.full((5,2),np.nan)
+    for i,confidence in enumerate(range(1,6)):
+        for j,side in enumerate(['underdog','favorite']):
+            row=cats[cats.category.eq(f'C{confidence} / {side}')]
+            if len(row):
+                rr=row.iloc[0];matrix[i,j]=rr.roi
+                ax.text(j,i,f'{rr.roi:.1%}\n{int(rr.wins)}/{int(rr.n)} wins',ha='center',va='center',color='black')
+    im=ax.imshow(matrix,cmap='RdYlGn',aspect='auto',vmin=-np.nanmax(np.abs(matrix)),vmax=np.nanmax(np.abs(matrix)))
+    ax.set(xticks=[0,1],xticklabels=['Below 50¢ (underdog)','Above 50¢ (favorite)'],yticks=range(5),yticklabels=[f'Confidence {i}' for i in range(1,6)],title='Net ROI after Kalshi fees; small cells are exploratory')
+    fig.colorbar(im,ax=ax,label='Net return / capital at risk')
+    fig.tight_layout();fig.savefig(ROOT/'reports/figures/confidence_price_roi.png',dpi=180);plt.close(fig)
+
+
 def run():
     full=pd.read_csv(ROOT/'data/cleaned/kalshi_fights.csv')
     d=full[full.y.notna() & full.kalshi_cost.notna() & full.status.ne('cancelled')].copy().reset_index(drop=True)
@@ -214,17 +229,7 @@ def run():
             ax.plot(np.arange(1,len(d)+1),np.cumsum(series),label=name)
     ax.axhline(0,color='black',lw=.8);ax.set(xlabel='Fight sequence',ylabel='Net profit, one unit at risk per qualifying fight',title='Historical Kalshi results, including estimated prices')
     ax.legend();fig.tight_layout();fig.savefig(plots/'cumulative_profit.png',dpi=180);plt.close(fig)
-    fig,ax=plt.subplots(figsize=(8,4.5))
-    matrix=np.full((5,2),np.nan)
-    for i,confidence in enumerate(range(1,6)):
-        for j,side in enumerate(['underdog','favorite']):
-            row=cats[cats.category.eq(f'C{confidence} / {side}')]
-            if len(row):
-                rr=row.iloc[0];matrix[i,j]=rr.roi
-                ax.text(j,i,f'{rr.roi:.1%}\n{int(rr.wins)}/{int(rr.n)} wins',ha='center',va='center',color='black')
-    im=ax.imshow(matrix,cmap='RdYlGn',vmin=-np.nanmax(np.abs(matrix)),vmax=np.nanmax(np.abs(matrix)))
-    ax.set(xticks=[0,1],xticklabels=['Price below 50¢','Price above 50¢'],yticks=range(5),yticklabels=[f'Confidence {i}' for i in range(1,6)],title='Net ROI after Kalshi fees; small cells are exploratory')
-    fig.colorbar(im,ax=ax,label='Net return / capital at risk');fig.tight_layout();fig.savefig(plots/'confidence_price_roi.png',dpi=180);plt.close(fig)
+    heatmap(cats)
     print(json.dumps(summary,indent=2),flush=True)
 
 

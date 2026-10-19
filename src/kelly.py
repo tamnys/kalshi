@@ -68,7 +68,7 @@ def run():
     warm=next(i for i in range(1,len(d)) if all(np.linalg.matrix_rank(x[:i])==x.shape[1] for x,_ in des.values()))
     predictions=d[['row','date','sequence','confidence','kalshi_price','kalshi_cost','price_source','y','kalshi_return','kalshi_no_cost','kalshi_no_return']].copy()
     predictions['market_probability']=d.kalshi_price
-    scores=[];strategies=[];fits={}
+    scores=[];strategies=[];fits={};draw_records=[]
     for name,(x,offset) in des.items():
         pred=np.full(len(d),np.nan);beta=None
         for i in range(warm,len(d)):
@@ -90,6 +90,21 @@ def run():
         f=kelly_fraction(v,cc[warm:]);r=rr[warm:]
         fn=kelly_fraction(1-v,d.kalshi_no_cost.to_numpy()[warm:])
         rn=d.kalshi_no_return.to_numpy()[warm:]
+        predictions[name+'_full_kelly']=np.r_[np.full(warm,np.nan),f]
+        predictions[name+'_fade_kelly']=np.r_[np.full(warm,np.nan),fn]
+        sequences=d.sequence.to_numpy()[warm:]
+        for _,draw in full[full.result.eq('draw')].iterrows():
+            tr=d.sequence.to_numpy()<draw.sequence
+            if tr.sum()<warm:continue
+            coef=fit_firth(x[tr],yy[tr],offset[tr])
+            dx,do=designs(full[full.row.eq(draw.row)])[name]
+            probability=float(expit(dx[0]@coef+do[0]))
+            fd=float(kelly_fraction(probability,draw.kalshi_cost));fnd=float(kelly_fraction(1-probability,draw.kalshi_no_cost))
+            pos=np.searchsorted(sequences,draw.sequence)
+            sequences=np.insert(sequences,pos,draw.sequence)
+            f=np.insert(f,pos,fd);fn=np.insert(fn,pos,fnd)
+            r=np.insert(r,pos,draw.kalshi_return);rn=np.insert(rn,pos,draw.kalshi_no_return)
+            draw_records.append(dict(model=name,forecast_win_probability=probability,back_full_kelly=fd,fade_full_kelly=fnd,back_return=draw.kalshi_return,fade_return=draw.kalshi_no_return))
         # At ordinary bid/ask spreads both positive edges cannot coexist; this
         # guards against doubling the same fight's bankroll exposure.
         assert not np.any((f>0)&(fn>0))
@@ -103,8 +118,6 @@ def run():
                 metrics=path_metrics(fraction*stake,ret)
                 strategies.append(dict(model=name,direction=direction,fraction=fraction,
                                        hindsight_optimal_fraction=lam,**metrics))
-            predictions[name+'_full_kelly']=np.r_[np.full(warm,np.nan),f]
-            predictions[name+'_fade_kelly']=np.r_[np.full(warm,np.nan),fn]
         print('MODEL',name,'walk-forward',scores[-1],flush=True)
     market=d.kalshi_price.to_numpy()[warm:];y=yy[warm:]
     scores.append(dict(model='market_unadjusted',n=len(y),brier=float(np.mean((market-y)**2)),
@@ -112,6 +125,7 @@ def run():
     pd.DataFrame(scores).to_csv(ROOT/'results/prequential_scores.csv',index=False)
     pd.DataFrame(strategies).to_csv(ROOT/'results/kelly_historical.csv',index=False)
     predictions.to_csv(ROOT/'artifacts/private/prequential_predictions.csv',index=False)
+    pd.DataFrame(draw_records).to_csv(ROOT/'results/draw_accounting.csv',index=False)
 
     # Test natural later time blocks with a model frozen on earlier observations.
     frozen=[]

@@ -17,6 +17,7 @@ from openpyxl import load_workbook
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_SOURCE = Path('/Users/j/Code/Kalshi/MMA betting - UFC Edmonton Oct 17 2026 - results updated.xlsx')
+EXPECTED_SHA256 = '32f5219d41c182159dcf53de4e019d703d7ad04b061b3e2505444dd68aa427b3'
 
 
 def norm(s):
@@ -25,6 +26,8 @@ def norm(s):
 
 
 def read_source(path):
+    if hashlib.sha256(path.read_bytes()).hexdigest() != EXPECTED_SHA256:
+        raise ValueError('This analysis has reviewed cell-specific corrections for one immutable workbook. Re-audit a different source before applying them.')
     ws = load_workbook(path, data_only=True).active
     rows = []
     date = event = None
