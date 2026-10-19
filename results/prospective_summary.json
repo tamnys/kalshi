@@ -1,0 +1,26 @@
+{
+  "model_initialization_counts": {
+    "reconstructed_and_observed": {
+      "market_offset": 1,
+      "confidence_offset": 2,
+      "odds_only": 2,
+      "odds_confidence": 3,
+      "odds_confidence_interaction": 4,
+      "confidence_categories": 24
+    },
+    "observed_only": {
+      "odds_confidence": 3
+    }
+  },
+  "adaptive_scenarios": 72,
+  "frozen_scenarios": 36,
+  "model_scenarios": 216,
+  "execution_scenarios": 24,
+  "notes": [
+    "Selections use only earlier outcomes and training-price midpoint boundaries.",
+    "Observed-only scenarios fit and trade only recovered asks; reconstructed scenarios retain later price-pair calibration.",
+    "Fixed-rule results condition on retrospective discovery; adaptive algorithms were specified during this investigation.",
+    "Before-card execution uses only prior cards and no within-card reinvestment; its equity ledger still resolves every fight.",
+    "Draws settle at 50 cents and canceled rows cannot create positions."
+  ]
+}

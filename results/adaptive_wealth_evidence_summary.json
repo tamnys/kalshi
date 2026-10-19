@@ -1,0 +1,17 @@
+{
+  "stated_strategy_family": 72,
+  "equal_mixture_terminal": 0.6279876873236254,
+  "equal_mixture_peak": 1.5939636672476476,
+  "equal_mixture_anytime_bound": 0.6273668719982399,
+  "minimum_individual_anytime_bound": 0.07113258350759279,
+  "assumptions": [
+    "Conditional expected settlement is no greater than all-in entry cost.",
+    "The algorithm and its stake are chosen without future-outcome information, with no borrowing.",
+    "Quoted/reconstructed costs are treated as the fixed design; actual executability is unverified.",
+    "This covers the stated 72 adaptive variants, not all researcher choices across the wider investigation."
+  ],
+  "sources": [
+    "https://arxiv.org/abs/1808.03204",
+    "https://arxiv.org/abs/1912.06116"
+  ]
+}

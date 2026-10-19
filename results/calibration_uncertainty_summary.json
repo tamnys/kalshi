@@ -1,0 +1,51 @@
+{
+  "resamples": 10000,
+  "cards": 15,
+  "decisive_fights": 185,
+  "seed": 3247627927,
+  "coefficient_names": [
+    "intercept",
+    "logit_price",
+    "confidence_minus_3"
+  ],
+  "fitted_coefficients": [
+    0.015598131215110342,
+    0.8998197050000819,
+    0.2962598896186066
+  ],
+  "coefficient_p025": [
+    -0.34305242125812,
+    0.46320195492112953,
+    -0.02163596792640004
+  ],
+  "coefficient_p975": [
+    0.3630856697179786,
+    1.4770052027947742,
+    0.6386311566463104
+  ],
+  "coefficient_covariance": [
+    [
+      0.03197737269940528,
+      -0.0250989483514716,
+      0.0054126946995515695
+    ],
+    [
+      -0.0250989483514716,
+      0.0663930282832883,
+      0.0014500206635774857
+    ],
+    [
+      0.0054126946995515695,
+      0.0014500206635774857,
+      0.028282896914395658
+    ]
+  ],
+  "notes": [
+    "Every resample draws 15 complete cards with replacement and refits the probability model.",
+    "10,000 fits give at most 0.005 Monte Carlo standard error for reported frequencies.",
+    "Bootstrap frequencies are not Bayesian probabilities or discovery-adjusted confidence.",
+    "These are final-fit sizing uncertainty summaries, not additional historical strategy returns.",
+    "Conditional on this model, reconstructed prices and the available cards; missing signals and future regime changes are not modeled.",
+    "No confidence cutoff or bankroll-risk preference is imposed."
+  ]
+}
