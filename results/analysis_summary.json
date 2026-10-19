@@ -1,0 +1,24 @@
+{
+  "binary_fights": 185,
+  "cards": 15,
+  "wins": 104,
+  "profit": -1.6346492033960685,
+  "roi": -0.008835941639978749,
+  "gross_profit": 4.102388441460707,
+  "draw_n": 1,
+  "draw_net_profit": 0.0257735871507498,
+  "draw_inclusive_roi": -0.008649868904544725,
+  "exhaustive_intervals": 52156,
+  "best_search_adjusted_p": 0.17848215178482152,
+  "simulation_count": 10000,
+  "monte_carlo_max_standard_error": 0.005,
+  "seed": 854925725,
+  "all_in_cost_formula": "p + 0.07*p*(1-p)",
+  "limitations": [
+    "API asks establish quoted prices, not fill depth or execution.",
+    "Reconstructed prices are not observed prices; uncertainty stress is not a confidence interval.",
+    "Global search adjustment uses independent Bernoulli outcomes at net breakeven.",
+    "Card-cluster t intervals are approximate with only 15 cards.",
+    "Posterior probabilities use a common log-odds shift with Jeffreys prior and independent fights; they are not selection-adjusted."
+  ]
+}

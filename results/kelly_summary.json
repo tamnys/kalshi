@@ -1,0 +1,46 @@
+{
+  "warmup_fights": 24,
+  "evaluated_fights": 161,
+  "final_parameters": {
+    "market_offset": [
+      -0.015811383789932756
+    ],
+    "confidence_offset": [
+      -0.009445206586007827,
+      0.30025707266908763
+    ],
+    "odds_only": [
+      0.004335934680676489,
+      0.9178189082307138
+    ],
+    "odds_confidence": [
+      0.01559814237363867,
+      0.8998196905132009,
+      0.2962598774687507
+    ],
+    "odds_confidence_interaction": [
+      0.0157312659889209,
+      0.9076852891114163,
+      0.2685287450513855,
+      0.15937328896029904
+    ],
+    "confidence_categories": [
+      -1.0971766126409175,
+      0.08776041034095577,
+      -0.23170843231114935,
+      0.3768569510149983,
+      0.7396792106243023,
+      0.9413219230699742
+    ]
+  },
+  "final_model": "odds_confidence",
+  "notes": [
+    "Comparative model family was specified during exploratory analysis, not externally preregistered.",
+    "Each forecast and stake uses earlier fight outcomes only; current/recent card outcomes are never read ahead.",
+    "Prices are pre-card snapshots; compounding assumes those prices remain obtainable when each later fight is bet.",
+    "Calibration of reconstructed historical prices uses later paired prices and is not strictly prospective.",
+    "No preferred risk tolerance was supplied; fractions are illustrated, not asserted to be universally optimal.",
+    "Hindsight-optimal fractions are descriptive, not independently validated recommendations.",
+    "Bootstrap risk uses the observed evaluation length in whole cards; it does not represent all future horizons."
+  ]
+}

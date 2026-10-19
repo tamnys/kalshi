@@ -1,0 +1,65 @@
+{
+  "indexed_market_count": 1570,
+  "price_source_counts": {
+    "imputed_from_sportsbook": 115,
+    "api_precard_ask": 69,
+    "imputed_from_opponent": 2,
+    "cancelled": 1
+  },
+  "oldest_indexed_market": "2025-05-08T20:30:00Z",
+  "overlap_n": 44,
+  "overlap_cards": 5,
+  "models": [
+    {
+      "model": "identity",
+      "rmse": 0.01951681072684925,
+      "mae": 0.016199792234140045,
+      "bias": 0.011396060012705532,
+      "coefficients": [
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "model": "shift",
+      "rmse": 0.0172172572223923,
+      "mae": 0.014218793184639068,
+      "bias": -0.0014183580533807137,
+      "coefficients": [
+        -0.06860396329317398,
+        1.0
+      ]
+    },
+    {
+      "model": "affine_logit",
+      "rmse": 0.014507778226314742,
+      "mae": 0.01133100010354199,
+      "bias": -0.0007943975622253424,
+      "coefficients": [
+        -0.04392272258693056,
+        0.9490583337367913
+      ]
+    }
+  ],
+  "chosen_model": "affine_logit",
+  "residual_quantiles": {
+    "0.025": -0.027248992394170304,
+    "0.25": -0.007830899820267773,
+    "0.5": 8.34411933047785e-05,
+    "0.75": 0.008674560863472111,
+    "0.975": 0.02951798417221088
+  },
+  "opponent_bid_coefficients": [
+    -0.12495551703713871,
+    0.9442620082206986
+  ],
+  "largest_quote_age_minutes": 0.0,
+  "series_fee_multiplier": 1,
+  "notes": [
+    "All prices are pre-card asks, not last traded settled values.",
+    "Price-model fitting never uses fight outcomes.",
+    "Leave-one-card-out RMSE chooses among identity, shift and affine-logit mapping.",
+    "Imputed prices before market inception are counterfactual, not historical fills.",
+    "Price reconstruction learned from later cards is not a strictly prospective backtest."
+  ]
+}

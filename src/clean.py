@@ -51,7 +51,7 @@ def clean(source):
                  73: ('frumza', 'frunza'), 76: ('osborne', 'osbourne'),
                  82: ('cornole', 'cornolle'), 84: ('sumadaerji', 'sumudaerji'),
                  157: ('cerquiera', 'cerqueira'), 170: ('shabazyan', 'shahbazyan'),
-                 172: ('yoo', 'you'), 181: ('zheleznyakova', 'zhelezniakova')}
+                 181: ('zheleznyakova', 'zhelezniakova')}
     for row, (old, new) in spellings.items():
         date = df.loc[df.row.eq(row), 'date'].iloc[0].replace('-', '')
         url = 'https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=' + date

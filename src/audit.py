@@ -59,9 +59,10 @@ def cached_scoreboard(date):
 
 def name_score(short, full):
     a, b = norm(short), norm(full)
-    if a in b:
-        return 1.0
     tokens = full.split()
+    phrases = {norm(' '.join(tokens[i:j])) for i in range(len(tokens)) for j in range(i+1,len(tokens)+1)}
+    if a in phrases:
+        return 1.0
     return max(SequenceMatcher(None, a, norm(' '.join(tokens[i:]))).ratio() for i in range(len(tokens)))
 
 

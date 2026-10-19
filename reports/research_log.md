@@ -33,3 +33,15 @@ Category boundaries and computational accuracy will be justified from the data o
 The priced binary-outcome sample has 183 fights: 103 wins and 80 losses. Two opponent-quoted prices cannot establish the selected fighter's odds and are excluded; one canceled fight and one draw are accounted separately. The draw's Kalshi position settles at 50 cents rather than an assumed refund. Exact Kalshi cents take priority over rounded equivalent American prices. Preliminary gross profit is 0.153 units on 183 units staked, before fees.
 
 The full correction log and corrected workbook are generated locally under `data/cleaned/`. Reproduction code and aggregate audit counts are committed. Raw scoreboard snapshots are cached locally.
+
+## Kalshi execution and inference checkpoint
+
+The user clarified that all execution should be on Kalshi, with missing prices reconstructed mathematically. The primary analysis now uses Kalshi asks and its standard taker fee, including counterfactual Kalshi prices for periods before the recovered market archive begins. The initial sportsbook summary remains an audit reference, not the final recommendation.
+
+Retrieved 1,570 live/archive KXUFCFIGHT markets and 69 selected-fighter pre-card ask observations. The oldest indexed market opened May 8, 2025. All recovered candles end at card start. Pre-card asks are used to avoid leaking live results; settled last-trade prices are never used. These quotes do not establish available depth or the price obtainable after earlier fights settle.
+
+44 independent sportsbook/ask pairs across five cards support an affine logit conversion. Leave-one-card-out evaluation gives 1.13-cent mean absolute error and 1.45-cent RMSE; identity conversion is less accurate. The 25 recent workbook American prices are conversions of Kalshi cents and are excluded from fitting. Two missing selected-fighter quotes are estimated from the opponent using a separately fitted bid relationship.
+
+The binary sample now has 185 fights, including the two explicitly imputed opponent-price rows. Aggregate net ROI is approximately -0.9%. The exhaustive search covers 52,156 confidence/price intervals with no minimum sample-size filter. All intervals, including losing and tiny cells, are retained in `results/all_interval_search.csv`. The maximum-statistic simulation adjusts for this search. Card-cluster intervals and model-based posterior probabilities describe different uncertainty assumptions and are reported separately.
+
+The user requested growth/drawdown tradeoffs without a preferred risk tolerance. Sequential probability calibration and Kelly staking are being evaluated with earlier outcomes only. All work remains exploratory; no dataset has been declared an untouched holdout.
