@@ -1,0 +1,25 @@
+{
+  "status_counts": {
+    "eligible": 183,
+    "missing_pick_price": 2,
+    "cancelled": 1,
+    "draw_separate": 1
+  },
+  "corrected_win_to_loss": 1,
+  "cancelled_marked_as_win": 1,
+  "year_corrections": 2,
+  "missing_event_filled": 1,
+  "missing_pick_prices": 2,
+  "logged_cell_changes": 35,
+  "sources": {
+    "cancelled": "https://www.ufc.com/news/updates-ufc-313-pereira-vs-ankalaev",
+    "result": "https://www.ufc.com/news/main-card-results-highlights-winner-interviews-ufc-fight-night-moreno-vs-erceg-mexico-city",
+    "ufc314": "https://www.ufc.com/news/official-judges-scorecards-ufc-314-volkanovski-vs-lopes-kaseya-center-miami",
+    "kansas": "https://www.ufc.com/event/ufc-fight-night-april-26-2025",
+    "emmett": "https://www.ufc.com/event/ufc-fight-night-april-05-2025",
+    "draw": "https://api.elections.kalshi.com/trade-api/v2/series/KXUFCFIGHT",
+    "fees": "https://kalshi.com/docs/kalshi-fee-schedule.pdf"
+  },
+  "binary_priced_fights": 183,
+  "original_rounded_conversion_max_absolute_error": 0.00046808510638296497
+}

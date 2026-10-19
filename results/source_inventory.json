@@ -1,0 +1,22 @@
+{
+  "filename": "MMA betting - UFC Edmonton Oct 17 2026 - results updated.xlsx",
+  "sha256": "32f5219d41c182159dcf53de4e019d703d7ad04b061b3e2505444dd68aa427b3",
+  "fight_rows": 187,
+  "events": 15,
+  "results": {
+    "y": 106,
+    "n": 80,
+    "draw": 1
+  },
+  "confidences": {
+    "1.0": 11,
+    "2.0": 45,
+    "3.0": 75,
+    "4.0": 49,
+    "5.0": 7
+  },
+  "first_date": "2025-03-01",
+  "last_date": "2026-10-17",
+  "kalshi_quote_rows": 25,
+  "independent_outcome_source": "ESPN scoreboards; reviewed corrections also cite UFC"
+}
