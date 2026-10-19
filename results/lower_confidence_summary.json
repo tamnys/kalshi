@@ -1,0 +1,20 @@
+{
+  "intervals": 4821,
+  "positive_intervals": 1442,
+  "candidate_rules": 119,
+  "kelly_scenarios": 4284,
+  "frozen_scenarios": 126,
+  "source_rows": 187,
+  "simulations": 10000,
+  "search_families": 7,
+  "notes": [
+    "Exact intervals are selected on the complete sample, with no minimum sample size.",
+    "Within-family correction covers all intervals at one confidence, direction and axis.",
+    "Study correction is Bonferroni across the complete prior backing search, complete prior fading search, and new NO-price search for confidence 1 and 2.",
+    "Independent net-breakeven null simulations are conditional on the quoted/reconstructed costs.",
+    "Jeffreys common-offset posteriors are conditional on model and category; they do not account for category discovery.",
+    "All Kelly paths include every workbook row. Card mode fixes probabilities and cash allocations before each card, resolving equity after each fight.",
+    "Observed-only scenarios fit and trade only observed prices. Cached pooled forecasts follow that restriction.",
+    "Scalable fees omit quantity rounding; current published formula and series multiplier checked. Actual fills and within-card settlement availability are unknown."
+  ]
+}

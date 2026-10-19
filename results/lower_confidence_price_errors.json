@@ -1,0 +1,19 @@
+{
+  "ask_error": {
+    "0.025": -0.027248992394170304,
+    "0.25": -0.007830899820267773,
+    "0.5": 8.34411933047785e-05,
+    "0.75": 0.008674560863472111,
+    "0.975": 0.02951798417221088
+  },
+  "no_error": {
+    "0.025": -0.03829289850972688,
+    "0.5": -0.0017083803641246842,
+    "0.975": 0.037098966511469496
+  },
+  "no_loco_mae": 0.014497983269882931,
+  "no_loco_rmse": 0.020141449012665513,
+  "independent_pairs": 44,
+  "cards": 5,
+  "note": "NO errors use a separately cross-validated bid map. Ask and NO errors are stressed separately; these are sensitivity cases, not confidence bounds."
+}
