@@ -1,0 +1,103 @@
+{
+  "portfolios": {
+    "core_broad": [
+      "core_broad"
+    ],
+    "core_bounded": [
+      "core_bounded"
+    ],
+    "c4_bounded": [
+      "c4_bounded"
+    ],
+    "fade1_favorites": [
+      "fade1_favorites"
+    ],
+    "fade1_all": [
+      "fade1_all"
+    ],
+    "fade1_narrow": [
+      "fade1_narrow"
+    ],
+    "back35_narrow": [
+      "back35_narrow"
+    ],
+    "back2_underdogs": [
+      "back2_underdogs"
+    ],
+    "back3_favorites": [
+      "back3_favorites"
+    ],
+    "fade2_middle": [
+      "fade2_middle"
+    ],
+    "broad_core_plus_fade1": [
+      "core_broad",
+      "fade1_favorites"
+    ],
+    "bounded_core_plus_fade1": [
+      "core_bounded",
+      "fade1_favorites"
+    ],
+    "bounded_core_plus_all_fade1": [
+      "core_bounded",
+      "fade1_all"
+    ],
+    "bounded_core_plus_narrow_fade1": [
+      "core_bounded",
+      "fade1_narrow"
+    ],
+    "core_fade1_plus_back2": [
+      "core_bounded",
+      "fade1_favorites",
+      "back2_underdogs"
+    ],
+    "core_fade1_plus_back3": [
+      "core_bounded",
+      "fade1_favorites",
+      "back3_favorites"
+    ],
+    "core_fade1_plus_fade2": [
+      "core_bounded",
+      "fade1_favorites",
+      "fade2_middle"
+    ],
+    "all_disjoint_candidates": [
+      "core_bounded",
+      "fade1_favorites",
+      "back2_underdogs",
+      "back3_favorites",
+      "fade2_middle"
+    ],
+    "two_unbeaten_intervals": [
+      "back35_narrow",
+      "fade1_narrow"
+    ],
+    "narrow_back_plus_broad_fade": [
+      "back35_narrow",
+      "fade1_favorites"
+    ]
+  },
+  "leg_descriptions": {
+    "core_broad": "Back C4\u20135, ask \u226535\u00a2",
+    "core_bounded": "Back C4\u20135, 35\u201381\u00a2",
+    "c4_bounded": "Back C4, 35\u201381\u00a2",
+    "fade1_favorites": "Fade C1 favorites",
+    "fade1_all": "Fade all C1",
+    "fade1_narrow": "Fade C1, pick ask 25\u201370\u00a2",
+    "back35_narrow": "Back C3\u20135, 35 to <40\u00a2",
+    "back2_underdogs": "Back C2, 16\u201336\u00a2",
+    "back3_favorites": "Back C3, 77 to <86\u00a2",
+    "fade2_middle": "Fade C2 middle-price picks"
+  },
+  "scenario_count": 960,
+  "feasible_scenarios": 876,
+  "notes": [
+    "Only already-discovered intervals and disjoint combinations are compared. This is not a global optimum over all strategies.",
+    "Every combination uses one bankroll and at most one side per fight. No overlapping positions are added.",
+    "The retrospective fraction optimum is restricted to fractional Kelly [0,1] and observed cash feasibility.",
+    "Card-mode probabilities and allocations are fixed before each card; equity updates after each fight.",
+    "Observed-only means observed-price training and trading, following earlier model stages.",
+    "Single-win reversal sensitivity fixes all planned stake fractions, so it does not simulate later forecast refitting.",
+    "All categories, combinations and retrospective fractions were considered after seeing the sample. No search-adjusted performance significance is asserted."
+  ]
+}
