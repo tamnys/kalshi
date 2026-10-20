@@ -10,6 +10,7 @@ import prospective,calibration_uncertainty,sequential_evidence,prospective_repor
 import lower_confidence,lower_confidence_report,verify_lower_confidence
 import aggressive_growth,aggressive_growth_report,verify_aggressive_growth
 import sequential_kelly,sequential_kelly_report,verify_sequential_kelly
+import trace_sequential_drawdown
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser()
@@ -19,7 +20,7 @@ if __name__=='__main__':
     clean.clean(source)
     for stage in (kalshi,analyze,kelly,robustness,strategy_tradeoffs,timing_audit,interval_trajectories,
                   prospective,calibration_uncertainty,sequential_evidence,lower_confidence,lower_confidence_report,
-                  aggressive_growth,aggressive_growth_report,sequential_kelly,sequential_kelly_report,
+                  aggressive_growth,aggressive_growth_report,sequential_kelly,trace_sequential_drawdown,sequential_kelly_report,
                   prospective_report,interval_report,report):
         print('Running',stage.__name__,flush=True)
         stage.run()

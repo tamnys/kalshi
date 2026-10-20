@@ -1,0 +1,155 @@
+[
+  {
+    "portfolio": "bounded_core_plus_fade1",
+    "sample": "all",
+    "model": "odds_confidence",
+    "peak_fight_index": 145,
+    "trough_fight_index": 162,
+    "loss_components": [
+      {
+        "fight_index": 147,
+        "confidence": 1,
+        "full_kelly_stake": 0.1376828033392303,
+        "side_probability": 0.2927938337229796,
+        "realized_bankroll_factor": 0.8623171966607697,
+        "price_source": "api_precard_ask"
+      },
+      {
+        "fight_index": 162,
+        "confidence": 5,
+        "full_kelly_stake": 0.4255299154556828,
+        "side_probability": 0.8305158143671437,
+        "realized_bankroll_factor": 0.574470084544317,
+        "price_source": "api_precard_ask"
+      }
+    ],
+    "sizing": [
+      {
+        "policy": "quarter",
+        "peak_wealth": 1.8507060375294324,
+        "trough_wealth": 1.5968975831334948,
+        "decline_over_same_window": 0.137141420219688,
+        "maximum_drawdown": 0.137141420219688,
+        "ending_wealth": 1.760132430966885
+      },
+      {
+        "policy": "half",
+        "peak_wealth": 3.242467246933385,
+        "trough_wealth": 2.376860390766724,
+        "decline_over_same_window": 0.26695932148129553,
+        "maximum_drawdown": 0.2669593214812955,
+        "ending_wealth": 2.85838764721203
+      },
+      {
+        "policy": "full",
+        "peak_wealth": 8.563798124121531,
+        "trough_wealth": 4.242295202745693,
+        "decline_over_same_window": 0.5046245671302692,
+        "maximum_drawdown": 0.5046245671302692,
+        "ending_wealth": 5.9032350536651474
+      }
+    ]
+  },
+  {
+    "portfolio": "core_fade1_plus_fade2",
+    "sample": "all",
+    "model": "odds_confidence",
+    "peak_fight_index": 145,
+    "trough_fight_index": 162,
+    "loss_components": [
+      {
+        "fight_index": 147,
+        "confidence": 1,
+        "full_kelly_stake": 0.1376828033392303,
+        "side_probability": 0.2927938337229796,
+        "realized_bankroll_factor": 0.8623171966607697,
+        "price_source": "api_precard_ask"
+      },
+      {
+        "fight_index": 162,
+        "confidence": 5,
+        "full_kelly_stake": 0.4255299154556828,
+        "side_probability": 0.8305158143671437,
+        "realized_bankroll_factor": 0.5744700845443171,
+        "price_source": "api_precard_ask"
+      }
+    ],
+    "sizing": [
+      {
+        "policy": "quarter",
+        "peak_wealth": 2.021766002911794,
+        "trough_wealth": 1.7444981419205885,
+        "decline_over_same_window": 0.137141420219688,
+        "maximum_drawdown": 0.137141420219688,
+        "ending_wealth": 1.9864012245932456
+      },
+      {
+        "policy": "half",
+        "peak_wealth": 3.8419352717740254,
+        "trough_wealth": 2.816294838446175,
+        "decline_over_same_window": 0.26695932148129553,
+        "maximum_drawdown": 0.2669593214812955,
+        "ending_wealth": 3.610683781082383
+      },
+      {
+        "policy": "full",
+        "peak_wealth": 11.685769986506887,
+        "trough_wealth": 5.788843365481959,
+        "decline_over_same_window": 0.504624567130269,
+        "maximum_drawdown": 0.504624567130269,
+        "ending_wealth": 9.116674002129391
+      }
+    ]
+  },
+  {
+    "portfolio": "all_disjoint_candidates",
+    "sample": "all",
+    "model": "odds_confidence",
+    "peak_fight_index": 145,
+    "trough_fight_index": 162,
+    "loss_components": [
+      {
+        "fight_index": 147,
+        "confidence": 1,
+        "full_kelly_stake": 0.1376828033392303,
+        "side_probability": 0.2927938337229796,
+        "realized_bankroll_factor": 0.8623171966607697,
+        "price_source": "api_precard_ask"
+      },
+      {
+        "fight_index": 162,
+        "confidence": 5,
+        "full_kelly_stake": 0.4255299154556828,
+        "side_probability": 0.8305158143671437,
+        "realized_bankroll_factor": 0.5744700845443171,
+        "price_source": "api_precard_ask"
+      }
+    ],
+    "sizing": [
+      {
+        "policy": "quarter",
+        "peak_wealth": 2.4124696300341757,
+        "trough_wealth": 2.0816201187344237,
+        "decline_over_same_window": 0.137141420219688,
+        "maximum_drawdown": 0.137141420219688,
+        "ending_wealth": 2.370270654710862
+      },
+      {
+        "policy": "half",
+        "peak_wealth": 5.348533698489201,
+        "trough_wealth": 3.92069277142068,
+        "decline_over_same_window": 0.26695932148129553,
+        "maximum_drawdown": 0.2669593214812956,
+        "ending_wealth": 5.026597928285819
+      },
+      {
+        "policy": "full",
+        "peak_wealth": 21.11657335942322,
+        "trough_wealth": 10.460631668649706,
+        "decline_over_same_window": 0.5046245671302692,
+        "maximum_drawdown": 0.5046245671302692,
+        "ending_wealth": 16.474131835745453
+      }
+    ]
+  }
+]
