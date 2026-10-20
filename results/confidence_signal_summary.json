@@ -1,0 +1,23 @@
+{
+  "fights": 185,
+  "cards": 15,
+  "bootstrap_refits": 10000,
+  "confidence_logodds_slope": 0.2962598896186066,
+  "per_level_odds_ratio": 1.3448196160767878,
+  "odds_ratio_p025": 0.978596410698201,
+  "odds_ratio_p975": 1.8938866699960717,
+  "bootstrap_positive_slope_frequency": 0.9657,
+  "leave_card_out_slope_min": 0.2233245162954468,
+  "leave_card_out_slope_max": 0.3814616599342252,
+  "illustrative_probability_change_from_50pct": 0.07352796217512869,
+  "paired_forecasts": 161,
+  "notes": [
+    "The confidence coefficient is fitted without imposing a positive sign; equally spaced log-odds effects are a model assumption.",
+    "Bootstrap frequencies are conditional resampling stability, not posterior probabilities of true edge.",
+    "Price averages are quoted/reconstructed asks, not established fair probabilities; win-rate differences are descriptive, not ROI.",
+    "Paired forecast differences use the original common 24-fight prefix and identical later observations.",
+    "Improvement is baseline loss minus model loss: positive is better.",
+    "Extreme-level exclusions are sensitivity checks, not independently validated models.",
+    "No untouched future outcomes are available. C2/C3 intervals retain their earlier search-selection limitations."
+  ]
+}

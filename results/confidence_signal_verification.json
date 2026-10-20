@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "level_aggregates": 5,
+  "paired_score_comparisons": 5,
+  "cached_refits": 10000,
+  "sensitivity_fits": 8
+}
