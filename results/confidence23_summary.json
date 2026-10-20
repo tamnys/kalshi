@@ -1,0 +1,21 @@
+{
+  "rules": 26,
+  "scenarios": 3420,
+  "path_points": 642960,
+  "adaptive_decisions": 324,
+  "local_forecasts": 320,
+  "simulations": 10000,
+  "source_fights": 187,
+  "samples": {
+    "C2": 45,
+    "C3": 73
+  },
+  "notes": [
+    "Intervals remain retrospective. Historical broader search correction is retained.",
+    "Predictive model comparison uses a common identifiable prefix within each confidence/source context.",
+    "Adaptive selections use strictly earlier fights, but the learning procedure was designed during this investigation.",
+    "Each bet settles before the next. Historical pre-card quotes are reused; execution is not established.",
+    "Price stress magnitudes and 10,000 simulations follow prior measured reconstruction errors and study precision.",
+    "No new minimum N, tuned probability cutoff, stake limit, or user risk preference was introduced."
+  ]
+}

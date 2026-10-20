@@ -1,0 +1,9 @@
+id,sample,model,bets,wins,roi,profit,cluster_ci_low,cluster_ci_high
+C2_adaptive_one_cut,all,category_offset,13,4.0,0.06708499117657421,0.8721048852954647,-1.2107209339923042,1.3448909163454528
+C2_adaptive_interval,all,category_offset,11,3.0,-0.12101137663068635,-1.33112514293755,-1.4124060961935092,1.1703833429321364
+C3_adaptive_one_cut,all,category_offset,24,8.0,-0.1784229781637134,-4.282151475929122,-0.763644241411037,0.40679828508361016
+C3_adaptive_interval,all,category_offset,11,3.0,-0.40595748927576614,-4.465532382033428,-1.1449370978855238,0.3330221193339914
+C2_adaptive_one_cut,observed,category_offset,3,0.0,-1.0,-3.0,,
+C2_adaptive_interval,observed,category_offset,3,0.0,-1.0,-3.0,,
+C3_adaptive_one_cut,observed,category_offset,3,2.0,-0.17622000683037617,-0.5286600204911285,,
+C3_adaptive_interval,observed,category_offset,4,2.0,-0.3821650051227821,-1.5286600204911285,-4.307333974243984,3.54300396399842
