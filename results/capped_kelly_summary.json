@@ -1,0 +1,36 @@
+{
+  "portfolios": [
+    "core_bounded",
+    "bounded_core_plus_fade1",
+    "bounded_core_plus_narrow_fade1",
+    "core_fade1_plus_fade2",
+    "all_disjoint_candidates",
+    "two_unbeaten_intervals"
+  ],
+  "contexts": 36,
+  "scenarios": 540,
+  "path_points": 101520,
+  "caps": {
+    "uncapped": null,
+    "cap_05": 0.05,
+    "cap_10": 0.1,
+    "cap_15": 0.15,
+    "cap_20": 0.2
+  },
+  "kelly_multipliers": {
+    "quarter": 0.25,
+    "half": 0.5,
+    "full": 1.0
+  },
+  "notes": [
+    "Per-fight caps of 5%, 10%, 15% and 20% were explicitly requested by the user.",
+    "Stake is current settled bankroll times min(Kelly multiplier times estimated full Kelly, cap).",
+    "The cap includes the modeled fee in the total amount at risk. It does not force smaller Kelly bets up to the cap.",
+    "Each fight settles before the next bet. Forecasts, price inputs, categories and multipliers are unchanged between capped and uncapped comparisons.",
+    "Maximum drawdown is recomputed over the entire trajectory; its peak and trough can change when stakes are capped.",
+    "Terminal wealth sacrificed is 1 minus capped ending wealth divided by uncapped ending wealth; a negative value means capping increased ending wealth.",
+    "Net profit sacrificed uses uncapped wealth minus initial wealth as denominator and is undefined when the uncapped strategy did not earn a profit.",
+    "Drawdown reduction is measured both in percentage points and relative to uncapped drawdown; zero-uncapped-drawdown relative reductions are undefined.",
+    "All prior model, reconstructed-price, timing and retrospective-category-selection limitations remain. No cap is declared optimal for future betting."
+  ]
+}

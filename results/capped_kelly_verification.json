@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "cash_reconstructed_paths": 540,
+  "uncapped_benchmarks_reconciled": 108,
+  "cap_comparisons": 432,
+  "individual_current_bankroll_cap_checks": 80784
+}
