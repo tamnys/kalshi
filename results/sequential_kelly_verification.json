@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "independent_cash_paths": 600,
+  "prior_fixed_scenarios_reconciled": 480,
+  "strictly_prior_fraction_optimality_conditions": 22440,
+  "frozen_fraction_optimality_conditions": 480,
+  "independent_bootstrap_terminal_and_tail_checks": 360
+}

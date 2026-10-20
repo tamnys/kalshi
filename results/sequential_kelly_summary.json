@@ -1,0 +1,31 @@
+{
+  "contexts": 120,
+  "scenarios": 600,
+  "path_points": 112800,
+  "frontier_points": 12120,
+  "frozen_comparisons": 1200,
+  "bootstrap_comparisons": 360,
+  "bootstrap_replicates": 10000,
+  "bootstrap_cards_per_replica": 15,
+  "recorded_rows": 187,
+  "decisive_fights": 185,
+  "splits": [
+    "2025-07-19",
+    "2026-10-10"
+  ],
+  "notes": [
+    "Every bet settles before the next is sized, using one bankroll and no simultaneous card constraint.",
+    "Chronology follows the audited ESPN fight order within each card.",
+    "Probability models and side-specific Kalshi costs are the existing verified sequential inputs.",
+    "Quarter/half/full are existing comparison fractions, not chosen exposure limits.",
+    "Hindsight optimum uses the full evaluation period and is not a deployable selection rule.",
+    "Learned-from-prior fits a common fraction on earlier realized full-Kelly opportunity returns only; no-history/flat ties use zero.",
+    "Earlier observable opportunities are used even if the multiplier made the executed stake zero.",
+    "Frozen tests fit the fraction before the existing natural date split, then hold that fraction fixed; probability forecasts continue updating after settlements.",
+    "Frozen test wealth starts at one at the split and must be compared with its same-window fixed-fraction controls.",
+    "Bootstrap resamples 15 whole cards, preserving within-card order, cached probabilities and fixed multipliers. It does not refit models or correct retrospective category selection.",
+    "Bootstrap replicate count retains the existing worst-case frequency Monte Carlo SE <= .005 convention.",
+    "A no-loss selected sample cannot generate losing bets by empirical resampling; zero empirical loss frequency is not evidence of zero future risk.",
+    "Prices include modeled fees and retain the assumption of obtainable quotes and settlement before the next fight."
+  ]
+}
