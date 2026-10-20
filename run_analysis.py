@@ -12,6 +12,7 @@ import aggressive_growth,aggressive_growth_report,verify_aggressive_growth
 import sequential_kelly,sequential_kelly_report,verify_sequential_kelly
 import trace_sequential_drawdown
 import capped_kelly,capped_kelly_report,verify_capped_kelly
+import confidence23,confidence23_report,verify_confidence23
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser()
@@ -22,7 +23,7 @@ if __name__=='__main__':
     for stage in (kalshi,analyze,kelly,robustness,strategy_tradeoffs,timing_audit,interval_trajectories,
                   prospective,calibration_uncertainty,sequential_evidence,lower_confidence,lower_confidence_report,
                   aggressive_growth,aggressive_growth_report,sequential_kelly,trace_sequential_drawdown,sequential_kelly_report,
-                  capped_kelly,capped_kelly_report,
+                  capped_kelly,capped_kelly_report,confidence23,confidence23_report,
                   prospective_report,interval_report,report):
         print('Running',stage.__name__,flush=True)
         stage.run()
@@ -33,3 +34,4 @@ if __name__=='__main__':
     verify_aggressive_growth.run()
     verify_sequential_kelly.run()
     verify_capped_kelly.run()
+    verify_confidence23.run()
