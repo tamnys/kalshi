@@ -1,0 +1,45 @@
+{
+  "portfolio": "bounded_core_plus_fade1",
+  "timing": "settle each fight before sizing the next bet",
+  "probability_model": "pooled odds/confidence logistic fit",
+  "prior_binary_fights": 97,
+  "prior_confidence5_fights": 4,
+  "prior_confidence5_wins": 3,
+  "confidence": 5,
+  "contract_ask": 0.77,
+  "price_source": "api_precard_ask",
+  "all_in_cost": 0.782397,
+  "saved_probability": 0.9021513245489317,
+  "independently_refit_probability": 0.9021514538400275,
+  "saved_full_kelly_fraction": 0.5503339776976036,
+  "algebraic_full_kelly_fraction": 0.5503339776976036,
+  "direct_expected_log_optimum": 0.5503338978578629,
+  "hypothetical_probability_sensitivity": [
+    {
+      "assumed_win_probability": 0.782397,
+      "full_kelly": 0,
+      "half_kelly": 0.0
+    },
+    {
+      "assumed_win_probability": 0.8,
+      "full_kelly": 0.08089502442521489,
+      "half_kelly": 0.040447512212607444
+    },
+    {
+      "assumed_win_probability": 0.85,
+      "full_kelly": 0.3106712683189109,
+      "half_kelly": 0.15533563415945545
+    },
+    {
+      "assumed_win_probability": 0.9021513245489317,
+      "full_kelly": 0.5503339776976036,
+      "half_kelly": 0.2751669888488018
+    }
+  ],
+  "interpretation": [
+    "The forecast combines all earlier confidence levels and prices; it is not the empirical win rate of four confidence-5 fights.",
+    "Full Kelly is conditional on the point forecast being correct; these calculations do not establish that probability.",
+    "Sensitivity probabilities are illustrative assumptions, not calibrated estimates or recommended risk limits.",
+    "Full and half Kelly use the same forecast but their own current bankrolls, so dollar stakes need not have a two-to-one ratio."
+  ]
+}
