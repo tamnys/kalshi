@@ -1,0 +1,27 @@
+{
+  "event": "UFC 333",
+  "date": "2026-10-24",
+  "fights": 13,
+  "wins": 8,
+  "prior_decisive": 185,
+  "scenarios": 1080,
+  "workbook_sha256": "ce4c494b25337b40a28d95ee82e5fe0a745335c045189d4cd115122850210e1d",
+  "result_matches": 13,
+  "ask_matches": 13,
+  "opposite_asks_recovered": 13,
+  "fight_order": "Workbook order agrees with ESPN competition listing",
+  "espn": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20261024",
+  "quote_times": [
+    "2026-10-24T14:00:00+00:00"
+  ],
+  "methodology": [
+    "Apply previously defined intervals and six probability models without selecting new rules.",
+    "Refit only on earlier settled fights, including earlier fights on this card. Retention scores earlier out-of-fit forecasts.",
+    "Use the spreadsheet YES asks. Buy NO at 1 minus same-candle YES bid. All 13 asks and outcomes match retrieved feeds.",
+    "Each fight settles before the next stake. Reset card-start bankroll to one.",
+    "Same continuous standard-taker fee approximation: ask + 0.07*ask*(1-ask). Fractional contracts; actual contract and fee rounding omitted.",
+    "Quotes were recorded before the card, not at each sequential entry. Executability and liquidity are not established.",
+    "The workbook was supplied with results; pre-fight existence of its picks is not independently certified. This is a retrospective application of pre-existing rules.",
+    "No new statistical edge claim is inferred from one card. No original or audited workbook is modified."
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "scenarios": 1080,
+  "settlements_reconciled": 14040,
+  "current_and_future_outcome_checks": 26,
+  "fits_within_existing_score_tolerance": 52,
+  "saved_full_history_reference_score": 6.109932501052739e-07,
+  "maximum_probability_difference_from_saved_full_history_fit": 7.457233053287382e-08,
+  "workbook_preserved": true,
+  "passed": true
+}
