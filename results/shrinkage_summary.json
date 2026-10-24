@@ -1,0 +1,53 @@
+{
+  "rows": 187,
+  "scenarios": 1080,
+  "path_points": 203040,
+  "models": [
+    "original",
+    "confidence_offset",
+    "shrink_original",
+    "shrink_confidence",
+    "shrink_original_warm",
+    "shrink_confidence_warm"
+  ],
+  "portfolios": [
+    "core_bounded",
+    "bounded_core_plus_fade1",
+    "bounded_core_plus_narrow_fade1",
+    "core_fade1_plus_fade2",
+    "all_disjoint_candidates",
+    "two_unbeaten_intervals"
+  ],
+  "fractions": {
+    "quarter": 0.25,
+    "half": 0.5,
+    "full": 1.0
+  },
+  "caps": {
+    "uncapped": null,
+    "cap_05": 0.05,
+    "cap_10": 0.1,
+    "cap_15": 0.15,
+    "cap_20": 0.2
+  },
+  "method": "p = logistic(logit(market ask) + retention * (logit(base forecast) - logit(market ask)))",
+  "selection": "Retention maximizes log score of strictly earlier out-of-fit forecasts across all confidence levels; never current/future outcomes or bankroll returns.",
+  "domain": "Retention [0,1] is the definition of contraction toward the market. No-history/flat objective selects its market-centered endpoint.",
+  "warmup": "All model paths use the original odds+confidence identifiable forecast start in the corresponding price sample.",
+  "warmup_sensitivity_first_fight_index": 26,
+  "offset_crosscheck_max_probability_difference": 2.674741624186794e-06,
+  "uncertainty": "95% paired whole-card bootstrap of fixed prequential score differences, 10,000 replicates. Does not refit or account for strategy/model selection.",
+  "notes": [
+    "This is learned predictive shrinkage, not a fully Bayesian prior/posterior model.",
+    "Each fight settles before the next stake; current bankroll includes all previous gains and losses.",
+    "The base confidence model shrinks both its intercept and ordinal confidence adjustment. Shrinking the original model also shrinks its fitted price-slope deviation.",
+    "A retained weight can increase again as earlier prediction performance changes; shrinkage is not a hard stake cap.",
+    "Established-warmup sensitivity starts shrinkage learning after the original common 24-decisive-fight prefix; earlier rows remain in base-model training. Before learning begins, the market-centered endpoint is used.",
+    "All six portfolio definitions were selected retrospectively in earlier research and are held fixed here.",
+    "Quotes, fees, draw settlement and price reconstruction are unchanged. Historical pre-card asks are not verified executable sequential entry prices.",
+    "The market ask is a probability benchmark, not known fair value. Pure market forecasts have no positive edge after modeled purchase costs.",
+    "Earlier reconstructed prices retain retrospective price-map information; observed-only fitting/trading is a sensitivity, not a matched trade universe.",
+    "No later-probability model or prior strength was chosen to avoid the two focal losses.",
+    "Later-period tables reset wealth, but forecasts and retention keep learning after each settled fight; they are not new untouched holdouts."
+  ]
+}

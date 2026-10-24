@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "curves_reconciled": 1080,
+  "rendered_control_states": 1440,
+  "local_links": 9,
+  "note": "Executes the exact embedded viewer script with a minimal DOM; this does not replace a real-browser visual inspection."
+}

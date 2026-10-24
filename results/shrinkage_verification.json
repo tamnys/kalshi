@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "reconciled_existing_scenarios": 180,
+  "independent_cash_paths": 1080,
+  "cash_steps": 201960,
+  "convex_optimality_checks": 996,
+  "future_outcome_mutation_checks": 16,
+  "offset_fit_score_checks": 251,
+  "maximum_firth_score": 9.890746431984176e-06,
+  "arithmetic_relative_error_bound": 4.1522341120980855e-13,
+  "note": "No new category search or return-optimized shrinkage. Prefix mutation checks certify tuning inputs; base fits separately use strict earlier-row records."
+}

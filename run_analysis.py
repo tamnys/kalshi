@@ -14,6 +14,7 @@ import trace_sequential_drawdown
 import capped_kelly,capped_kelly_report,verify_capped_kelly
 import confidence23,confidence23_report,verify_confidence23
 import confidence_signal
+import shrinkage_backtest,shrinkage_report,verify_shrinkage
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser()
@@ -25,6 +26,7 @@ if __name__=='__main__':
                   prospective,calibration_uncertainty,sequential_evidence,lower_confidence,lower_confidence_report,
                   aggressive_growth,aggressive_growth_report,sequential_kelly,trace_sequential_drawdown,sequential_kelly_report,
                   capped_kelly,capped_kelly_report,confidence23,confidence23_report,confidence_signal,
+                  shrinkage_backtest,shrinkage_report,
                   prospective_report,interval_report,report):
         print('Running',stage.__name__,flush=True)
         stage.run()
@@ -36,3 +38,4 @@ if __name__=='__main__':
     verify_sequential_kelly.run()
     verify_capped_kelly.run()
     verify_confidence23.run()
+    verify_shrinkage.run()

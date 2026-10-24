@@ -1,0 +1,9 @@
+sample,model,forecasts,mean_retention,zero_retention,full_retention,last_retention
+all,shrink_original,183,0.0,183,0,0.0
+all,shrink_confidence,183,0.01092896174863388,181,2,0.0
+all,shrink_original_warm,183,0.25244166643145427,35,14,0.16368201135818838
+all,shrink_confidence_warm,183,0.28314328192745836,74,8,0.3157231271964702
+observed,shrink_original,66,0.03220361488932632,61,2,0.0
+observed,shrink_confidence,66,0.06180016920795355,61,4,0.0
+observed,shrink_original_warm,66,0.03220361488932632,61,2,0.0
+observed,shrink_confidence_warm,66,0.06180016920795355,61,4,0.0
