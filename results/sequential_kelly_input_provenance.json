@@ -1,0 +1,107 @@
+{
+  "model": "odds_confidence",
+  "portfolio": "bounded_core_plus_fade1",
+  "sample": "all",
+  "cadence": "fight",
+  "model_formula": "logit(p_pick) = beta0 + beta1*logit(pick_yes_ask) + beta2*(confidence - 3)",
+  "fitting": "Firth logistic regression, refit before every fight using strictly earlier eligible decisive outcomes at all confidence levels, including earlier outcomes on the same card.",
+  "prior_interpretation": "No hand-set fighter probability or Beta prior. Firth/Jeffreys penalty supplies bias reduction; forecasts are fitted point estimates, not posterior-integrated probabilities.",
+  "kelly_formula": "max(0, (p_side - all_in_cost)/(1 - all_in_cost))",
+  "fee_approximation": "ask + 0.07*ask*(1-ask), continuous approximation as used in saved simulations",
+  "records": [
+    {
+      "fight_index": 147,
+      "confidence": 1,
+      "side": "no",
+      "pick_probability": 0.7072061662770204,
+      "side_probability": 0.2927938337229796,
+      "ask": 0.17000000000000004,
+      "all_in_cost": 0.17987700000000004,
+      "full_kelly": 0.13768280333923033,
+      "half_kelly": 0.06884140166961517,
+      "quarter_kelly": 0.03442070083480758,
+      "prior_decisive_fights": 145,
+      "prior_same_card_fights": 10,
+      "prior_confidence_counts": {
+        "1": {
+          "n": 8,
+          "wins": 1
+        },
+        "2": {
+          "n": 33,
+          "wins": 19
+        },
+        "3": {
+          "n": 58,
+          "wins": 31
+        },
+        "4": {
+          "n": 40,
+          "wins": 27
+        },
+        "5": {
+          "n": 6,
+          "wins": 5
+        }
+      },
+      "prior_quote_source_counts": {
+        "imputed_from_sportsbook": 114,
+        "imputed_from_opponent": 2,
+        "api_precard_ask": 29
+      },
+      "price_source": "api_precard_ask"
+    },
+    {
+      "fight_index": 162,
+      "confidence": 5,
+      "side": "yes",
+      "pick_probability": 0.8305158143671437,
+      "side_probability": 0.8305158143671437,
+      "ask": 0.69,
+      "all_in_cost": 0.704973,
+      "full_kelly": 0.42552991545568286,
+      "half_kelly": 0.21276495772784143,
+      "quarter_kelly": 0.10638247886392072,
+      "prior_decisive_fights": 160,
+      "prior_same_card_fights": 13,
+      "prior_confidence_counts": {
+        "1": {
+          "n": 9,
+          "wins": 2
+        },
+        "2": {
+          "n": 36,
+          "wins": 20
+        },
+        "3": {
+          "n": 67,
+          "wins": 36
+        },
+        "4": {
+          "n": 42,
+          "wins": 28
+        },
+        "5": {
+          "n": 6,
+          "wins": 5
+        }
+      },
+      "prior_quote_source_counts": {
+        "imputed_from_sportsbook": 115,
+        "imputed_from_opponent": 2,
+        "api_precard_ask": 43
+      },
+      "price_source": "api_precard_ask"
+    }
+  ],
+  "full_kelly_two_loss_drawdown": 0.5046245671302692,
+  "half_kelly_two_loss_drawdown": 0.26695932148129553,
+  "quarter_kelly_two_loss_drawdown": 0.13714142021968811,
+  "verification": "Recomputed Kelly fractions from saved probabilities and ledger costs; both match saved drawdown attribution within floating-point precision. Training counts reconstructed from the exact earlier-row eligibility rule. No new probability fit was performed.",
+  "limitations": [
+    "These two purchase quotes are recovered historical pre-card quotes, not verified executable quotes at each sequential fight start.",
+    "Most earlier training prices are reconstructed; price reconstruction used retrospective quote pairs.",
+    "Firth bias reduction is not a validation of probability calibration, and the model imposes a single linear confidence effect on log odds.",
+    "Portfolio selection was retrospective. Sizing used probability point estimates without an additional calibration discount or an exposure cap in the full-Kelly case."
+  ]
+}
