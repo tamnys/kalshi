@@ -7,6 +7,7 @@ Standard library only, sharing the existing shrinkage and bankroll definitions.
 """
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta, timezone
+import csv
 import hashlib
 import html
 import json
@@ -17,7 +18,7 @@ import xml.etree.ElementTree as ET
 import zipfile
 
 from shrinkage_backtest import (ROOT, MODELS, LABELS, PORTFOLIOS, FRACTIONS, CAPS,
-    FIRTH_SCORE_TOL, read_csv, write_csv, load_inputs, logit, expit, softplus,
+    FIRTH_SCORE_TOL, read_csv, load_inputs, logit, expit, softplus,
     firth_offset, firth_state, retention, position, simulate)
 
 PRIVATE = ROOT/'artifacts/private/ufc333'
@@ -33,6 +34,15 @@ PORT_LABELS = {
     'all_disjoint_candidates': 'All previously selected candidates',
     'two_unbeaten_intervals': 'Two previously unbeaten intervals',
 }
+
+
+def write_csv(path, rows):
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open('w', newline='') as output:
+        writer = csv.DictWriter(output, fieldnames=list(rows[0]), lineterminator='\n')
+        writer.writeheader()
+        writer.writerows(rows)
 
 
 def fetch(url):
