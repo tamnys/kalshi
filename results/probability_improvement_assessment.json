@@ -1,0 +1,102 @@
+{
+  "purpose": "Assess candidate improvements to probability estimation using existing forecasts, without fitting or selecting a new model.",
+  "scores": [
+    {
+      "model": "market_probability",
+      "n": 161,
+      "log_loss": 0.6042981688060822,
+      "brier": 0.2090845391021164
+    },
+    {
+      "model": "confidence_offset",
+      "n": 161,
+      "log_loss": 0.6077476533375616,
+      "brier": 0.20934435025623305
+    },
+    {
+      "model": "odds_confidence",
+      "n": 161,
+      "log_loss": 0.6139715663203092,
+      "brier": 0.21094574556137352
+    },
+    {
+      "model": "confidence_categories",
+      "n": 161,
+      "log_loss": 0.6305778752819812,
+      "brier": 0.21615760234439593
+    }
+  ],
+  "targets": [
+    {
+      "fight_index": 147,
+      "confidence": 1,
+      "bet_side": "no",
+      "predictions": [
+        {
+          "model": "market_probability",
+          "pick_probability": 0.84,
+          "side_probability": 0.16000000000000003,
+          "full_kelly": 0
+        },
+        {
+          "model": "confidence_offset",
+          "pick_probability": 0.7064178773076868,
+          "side_probability": 0.2935821226923132,
+          "full_kelly": 0.13864398717303772
+        },
+        {
+          "model": "odds_confidence",
+          "pick_probability": 0.7072061662770204,
+          "side_probability": 0.2927938337229796,
+          "full_kelly": 0.13768280333923036
+        },
+        {
+          "model": "confidence_categories",
+          "pick_probability": 0.4992007967536733,
+          "side_probability": 0.5007992032463267,
+          "full_kelly": 0.39130984406769065
+        }
+      ]
+    },
+    {
+      "fight_index": 162,
+      "confidence": 5,
+      "bet_side": "yes",
+      "predictions": [
+        {
+          "model": "market_probability",
+          "pick_probability": 0.69,
+          "side_probability": 0.69,
+          "full_kelly": 0
+        },
+        {
+          "model": "confidence_offset",
+          "pick_probability": 0.8255990917111202,
+          "side_probability": 0.8255990917111202,
+          "full_kelly": 0.40886458429608225
+        },
+        {
+          "model": "odds_confidence",
+          "pick_probability": 0.8305158143671437,
+          "side_probability": 0.8305158143671437,
+          "full_kelly": 0.42552991545568286
+        },
+        {
+          "model": "confidence_categories",
+          "pick_probability": 0.923799973972255,
+          "side_probability": 0.923799973972255,
+          "full_kelly": 0.7417184663514017
+        }
+      ]
+    }
+  ],
+  "verification": "Probability scores independently recomputed from identical 161 saved earlier-outcome forecasts. Historical stake alternatives recomputed from each saved model forecast and the same side-specific costs.",
+  "interpretation": "The market quote benchmark has the best point-estimate score among these models; saved paired uncertainty intervals do not establish superiority. The simpler market-offset confidence model still produces a large second stake. These results motivate testing market-centered shrinkage, not claiming it already improves forecasts.",
+  "proposed_estimator": "A market-offset confidence calibration with confidence adjustments shrunk toward zero; compare with the market-only baseline using earlier-data-only tuning and subsequent forecasts. Hierarchical confidence deviations are a secondary candidate if the common effect proves inadequate.",
+  "not_established": [
+    "No optimal shrinkage amount or hierarchical prior scale has been estimated here.",
+    "No new win probability is assigned to either historical fight.",
+    "A narrower historical drawdown is not evidence of more accurate probabilities.",
+    "Posterior uncertainty alone does not automatically reduce single-bet expected-log-optimal sizing at a fixed posterior mean."
+  ]
+}
